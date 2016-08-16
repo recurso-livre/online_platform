@@ -44,7 +44,7 @@
             <div class="content">
                 <div class="title">
                     <figure>
-                        <img src="{{ asset('assets/img/rl-logo.png') }}"></img>
+                        <img src="{{ asset('assets/img/logo/logo-rl-large-w512.png') }}"></img>
                         <figcaption>
                             Em construção...
                         </figcaption>
