@@ -1,7 +1,3 @@
-/node_modules
-/public/storage
-bootstrap/cache/
-
 Homestead.yaml
 Homestead.json
 
