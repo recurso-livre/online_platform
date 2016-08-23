@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/usuario/cadastrar', function () {
+    return view('pages.user.create');
 });

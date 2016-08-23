@@ -1,0 +1,126 @@
+html, body {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+#rl-content {
+    margin: 40px 0; 
+}
+
+.rl-navbar {
+    background: #2083c4;
+    border: none;
+    border-bottom: 1px solid #3b5998;
+    border-radius: 0;
+    margin: 0;
+}
+
+.rl-logo {
+    height: 190%;
+    margin-top: -9px;
+}
+
+.rl-navbar-btn {
+    color: #e6e6e6 !important;
+    transition: all 0.8s linear;
+}
+
+.rl-navbar-btn:hover {
+    color: #fff !important;
+    transition: all 0.3s linear;
+}
+
+.rl-titlebar-image-area {
+    background-color: #eee;
+}
+
+.rl-titlebar-image-area img {
+    display: block;
+    margin: 0 auto;
+    max-height: 300px;
+}
+
+.rl-titlebar-text-area {
+    background-color: #2083c4;
+    opacity: 0.8;
+    padding: 10px 0;
+}
+
+.rl-titlebar-text-area span {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+
+.footer, .copyright {
+    color: #fdfdfd;
+    font-family: sans-serif arial;
+}
+
+.footer {
+    background-color: #3d3d3d;
+    padding: 60px 0;
+    margin: 20px 0 0 0;
+}
+
+.copyright {
+    background-color: #555;
+    padding: 20px 0;
+}
+
+.rl-shadow-1
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.rl-shadow-1:before, .rl-shadow-1:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.rl-shadow-1:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+
+
+#rl-content .input-group {
+    margin: 20px 6px; 
+}
+
+#rl-footer a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.divider {
+    margin:20px 20px 30px 20px;
+    border-bottom: 1px solid #ccc;
+}
