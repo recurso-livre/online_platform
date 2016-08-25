@@ -11,4 +11,11 @@ class Category extends Model
         "name",
         "description"
     ];
+    
+    // Promover o relacionamento (Category -> Resource)
+    public function resources()
+    {
+        // Resource possui várias categorias
+        return $this->belongsToMany('App\Resource', 'resources_categories');
+    }
 }
