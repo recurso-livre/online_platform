@@ -2,6 +2,7 @@ html, body {
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 ul {
@@ -9,8 +10,16 @@ ul {
     list-style-type: none;
 }
 
-#rl-content {
-    margin: 40px 0; 
+.rl-fixed-navbar-space {
+    width: 100%;
+    height: 50px;
+}
+
+.rl-fixed-navbar {
+    position: fixed !important;
+    width: 100%;
+    height: 50px;
+    z-index: 999;
 }
 
 .rl-navbar {
@@ -109,6 +118,12 @@ ul {
             transform:skew(8deg) rotate(3deg);
 }
 
+.rl-shadow-2 {
+    -moz-box-shadow: inset 0 0 10px #ddd;
+    -webkit-box-shadow: inset 0 0 10px #ddd;
+    box-shadow: inset 0 0 10px #ddd;
+}
+
 
 
 #rl-content .input-group {
@@ -123,4 +138,81 @@ ul {
 .divider {
     margin:20px 20px 30px 20px;
     border-bottom: 1px solid #ccc;
+}
+
+.full-space, .full-width {
+    width: 100%;
+}
+
+.full-space, .full-height {
+    height: 100%;
+}
+
+.padding-tb-10 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.padding-tb-30 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.margin-tb-40 {
+    margin: 40px auto !important;
+}
+
+.text-title {
+    font-size: 20px;
+    line-height: 35px;
+    color: #676767;
+    margin: 10px auto;
+}
+
+.text-description {
+    color: #999;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 13px;
+    height: 68px;
+    line-height: 17px;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #09588c;
+}
+.navbar-default .navbar-toggle {
+    border-color: #97bad2;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #97bad2;
+}
+
+.navbar-search {
+    width: 540px;
+}
+
+@media (max-width: 1200px) {
+  .navbar-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+    .navbar-search {
+        width: 90%;
+        margin: auto 5%;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        overflow-x: hidden;
+        background-color: rgb(10, 82, 130);
+        z-index: 9999;
+        width: 100%;
+    }
+    
+    .navbar-form {
+        border: none;
+    }
 }
