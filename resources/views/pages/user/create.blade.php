@@ -10,8 +10,11 @@
     ])
 @endsection
 
-@section('container')
-    @include('modules.content.user.create')
+@section('content')
+    <div class="container margin-tb-40">
+        @include('modules.content.user.create')
+    </div>
+    
 @endsection
 
 @section('footer')
