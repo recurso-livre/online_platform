@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
-
 Route::get('/usuario/cadastrar', function () {
     return view('pages.user.create');
 });
@@ -29,3 +25,16 @@ Route::post("categoria/store", "CategoryController@store");
 
 // Rota de exemplo para mostrar recursos com a categoria escolhida por id na rota
 Route::get("categoria/{id}", "CategoryController@resources");
+
+// Rotas com Middleware Web (mais seguro)
+Route::group(['middleware' => ['web']], function()
+{
+    Route::get('/', function(){
+        return view('welcome');
+    });
+
+    // Geração das rotas relacionadas a Autenticação e Registro de Usuário
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
