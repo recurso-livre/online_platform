@@ -6,3 +6,5 @@ Homestead.json
 .env
 
 node_modules
+vendor
+php_errors.log
