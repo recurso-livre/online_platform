@@ -12,6 +12,11 @@ use App\Category;
 
 class ResourceController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+    
     // Método para inclusão de recurso (criação)
     public function create()
     {
@@ -22,7 +27,7 @@ class ResourceController extends Controller
             return "É preciso criar 1 categoria.";
         
         // Caso haja 1 categoria ou mais, continue o cadastro...
-        return view("recurso.create", compact('categories'));
+        return view("pages.resource.create", compact('categories'));
     }
     
     public function index()
@@ -33,10 +38,6 @@ class ResourceController extends Controller
     // Método para armazenamento dos dados de recurso passados na requisição
     public function store(ResourceRequest $request)
     {
-        // Caso seja retirada o campo category_id, impeça a criação do recurso
-        if (!$request->has("category_id"))
-            return "category_id foi retirado.";
-        
         $input = $request->all();
         
         // Caso seja alterada category_id para id que não exista, impeça a criação do recurso
@@ -45,6 +46,7 @@ class ResourceController extends Controller
         
         // Criar registro de recurso
         $recurso = Resource::create($input);
+        
         $recurso->categories()->attach($input["category_id"]);
         
         return redirect("recurso/criar");
