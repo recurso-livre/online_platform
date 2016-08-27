@@ -31,11 +31,11 @@
         'slides' => [
             [
                 'link' => '#slide1',
-                'img' => 'http://resources.mlstatic.com/deals/exhibitors_resources/mlb-home-desktop-slider-picture-6a3bfee0-b354-4164-913a-10cdfcfa1e12.jpg'
+                'img' => asset('img/home-slider/001.png')
             ],
             [
                 'link' => '#slide2',
-                'img' => 'http://resources.mlstatic.com/deals/exhibitors_resources/mlb-home-desktop-slider-picture-6a3bfee0-b354-4164-913a-10cdfcfa1e12.jpg'
+                'img' => 'https://placehold.it/1600x340'
             ]
         ]
     ])

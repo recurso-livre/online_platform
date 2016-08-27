@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/usuario/cadastrar', function () {
-    return view('pages.user.create');
-});
-
 Route::get("recurso/lista", "ResourceController@index");
 Route::get("recurso/criar", "ResourceController@create");
 Route::post("recurso/store", "ResourceController@store");
@@ -29,12 +25,34 @@ Route::get("categoria/{id}", "CategoryController@resources");
 // Rotas com Middleware Web (mais seguro)
 Route::group(['middleware' => ['web']], function()
 {
-    Route::get('/', function(){
-        return view('welcome');
-    });
-
     // Geração das rotas relacionadas a Autenticação e Registro de Usuário
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    // UserAuthController só será usado com autenticação
+    //Route::get('/', 'UserAuthController@home');
+    
+    Route::get('/', ['as' => 'home.index', 'uses' => 'GuestController@home']);
+    
+    // Rotas de usuário
+    Route::group(['prefix' => 'usuario'], function()
+    {
+        // Rota não-autenticada
+        Route::get('cadastrar', ['as' => 'user.create', 'uses' => 'GuestController@createUser']);
+        
+        // Rotas de recurso
+        Route::group(['prefix' => 'recurso'], function()
+        {
+            Route::get('cadastrar', ['as' => 'user.resource.create', 'uses' => "ResourceController@create"]);
+            Route::post('store', ['as' => 'user.resource.store', 'uses' => 'ResourceController@store']);
+        });
+        
+        // Rotas de categoria
+        Route::group(['prefix' => 'categoria'], function()
+        {
+            Route::get('cadastrar', ['as' => 'user.category.create', 'uses' => 'CategoryController@create']);
+        });
+        
+    });
+    
+    Route::get('/recurso/cadastrar', "ResourceController@create");
 });
