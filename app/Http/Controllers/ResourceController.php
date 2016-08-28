@@ -39,16 +39,18 @@ class ResourceController extends Controller
     public function store(ResourceRequest $request)
     {
         $input = $request->all();
-        
+
         // Caso seja alterada category_id para id que não exista, impeça a criação do recurso
         if (!Category::find($input["category_id"]))
             return "category_id não existente.";
-        
+
+        $input["user_id"] = '1';
+
         // Criar registro de recurso
         $recurso = Resource::create($input);
-        
+
         $recurso->categories()->attach($input["category_id"]);
-        
+
         return redirect("recurso/criar");
     }
 }

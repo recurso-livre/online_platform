@@ -11,7 +11,8 @@ class Resource extends Model
         "name",
         "technicalDescription",
         "informalDescription",
-        "uriResources"
+        "uriResources",
+        "user_id"
     ];
     
     // Promover o relacionamento (Resource -> Category)
@@ -19,5 +20,12 @@ class Resource extends Model
     {
         // Resource possui várias categorias
         return $this->belongsToMany('App\Category', 'resources_categories');
+    }
+
+    // Promover o relacionamento (Resource -> User)
+    public function user()
+    {
+        // Resource possui 1 usuário
+        return $this->belongsTo('App\User');
     }
 }

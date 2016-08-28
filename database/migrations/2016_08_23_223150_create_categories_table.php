@@ -13,7 +13,7 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->index();
             $table->timestamps();                           // não-nulo
             
             // Campos não-nulos e nome não pode repetir

@@ -1,10 +1,10 @@
 <div class="alert alert-warning" role="alert">Preencha todos os campos corretamente e confirme para continuar.</div>
 
-<form id="create-resource" class="form-horizontal" role="form" method="POST" accept-charset="UTF-8" action="{{ route('user.resource.store') }}">
+<form method="POST" accept-charset="UTF-8" action="{{ route('user.resource.store') }}">
     {{ csrf_field() }}
-    
+
     <input id="uri-resources" type="hidden" name="uriResources">
-    
+
     <h3>Informações</h3>
     <div class="row">
         <div class="col-md-8">
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-12">
             <ul class="nav nav-tabs">
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
 	    <div class="col-md-12">
 	        <div class="resource-image-table">
@@ -67,13 +67,13 @@
 	        </div>
 	    </div>
 	</div>
-    
+
     <br/>
     <br/>
     <br/>
-    
+
     <div class="divider"></div>
-    
+
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-lg btn-primary pull-right" type="submit">Cadastrar</button>

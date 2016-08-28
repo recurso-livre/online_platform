@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ResourceRequest extends Request
+class AddressRequest extends Request
 {
     /**
      * Determine se o usuário tem autorização para esta requisição.
@@ -24,9 +24,12 @@ class ResourceRequest extends Request
     public function rules()
     {
         return [
-            "name"                  => "required|min:5|max:255|alpha_dash", // permite (alfabeto + '_' + '-')
-            "technicalDescription"  => "required|min:5|max:1000",
-            "informalDescription"   => "required|min:5|max:1000"
+            "zipCode" =>        "required",
+            "street" =>         "required|max:255",
+            "additionalData" => "required|max:255",
+            "neighborhood" =>   "required|max:255",
+            "city" =>           "required|max:255",
+            "state" =>          "required|max:255"
         ];
     }
 }
