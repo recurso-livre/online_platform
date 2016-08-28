@@ -13,7 +13,7 @@ class ResourcesCategoriesTable extends Migration
     public function up()
     {
         Schema::create('resources_categories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->index();
             $table->timestamps();
             
             // ID e DECLARAÇÃO DA FOREIGN KEY resources_id

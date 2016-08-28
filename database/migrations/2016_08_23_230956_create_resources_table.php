@@ -13,7 +13,7 @@ class CreateResourcesTable extends Migration
     public function up()
     {
         Schema::create('resources', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->index();
             $table->timestamps();                           // não-nulo
             
             // Campos não-nulos e o nome pode repetir
@@ -24,6 +24,10 @@ class CreateResourcesTable extends Migration
             // Criar um campo chamado URIResources (id e URI) que armazenará um JSON com as URIs (método json() não está 
             // funcionando devido ao MySQL)
             $table->text("uriResources");                   // não-nulo
+
+            // Chave estrangeira para o usuário associado ao recurso
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
