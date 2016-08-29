@@ -43,10 +43,12 @@ Route::group(['middleware' => ['web']], function()
     // Rotas de recurso
     Route::group(['prefix' => 'recurso'], function()
     {
-        //Route::get('cadastrar', ['as' => 'resource.create', 'uses' => "ResourceController@create"]);
-        
-        
+        Route::get('cadastrar', ['as' => 'resource.create', 'uses' => "ResourceController@create"]);
         Route::get('procurar/{category}/{query}/{page}', ['as' => 'resource.search', 'uses' => 'ResourceController@search']);
+        
+        // Rota para pesquisa de recurso
+        Route::get('pesquisarHome', ['as' => 'guest.resource.home', 'uses' => 'ResourceController@homeSearch']);
+        Route::get('pesquisar/', ['as' => 'guest.resource.search', 'uses' => 'ResourceController@searchTeste']);
     });
     
     // Rotas de categoria
@@ -69,12 +71,5 @@ Route::group(['middleware' => ['web']], function()
         {
             Route::get('cadastrar', ['as' => 'api.category.create', 'uses' => 'CategoryController@create']);
         });
-    });
-
-    Route::group(['prefix' => 'recurso'], function()
-    {
-        // Rota para pesquisa de recurso
-        Route::get('pesquisarHome', ['as' => 'guest.resource.home', 'uses' => 'ResourceController@homeSearch']);
-        Route::get('pesquisar/{items?}', ['as' => 'guest.resource.search', 'uses' => 'ResourceController@searchTeste']);
     });
 });

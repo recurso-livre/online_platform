@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="image-fit" style="min-height: 160px;">
-                    <img src="{{ $resource->resourceUri->images[0] }}">
+                    <img src="{{ $resource->uriResources->images[0] }}">
                 </div>
             </div>
             <div class="col-md-12" style="text-align:center;">

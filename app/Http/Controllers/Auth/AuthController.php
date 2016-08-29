@@ -53,6 +53,12 @@ class AuthController extends Controller
             'phone' => 'required|max:15',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'zipCode' => 'required',
+            'street' => 'required',
+            'additionalData' => 'required',
+            'neighborhood' => 'required',
+            'city' => 'required',
+            'state' => 'required'
         ]);
     }
 
@@ -64,12 +70,28 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Criar usuário
+        $user = User::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
             'email' => $data['email'],
             'password' => hash('sha256', $data['password']),
         ]);
+
+        // Criar endereço
+        $address = Address::create([
+            'zipCode' => $data['zipCode'],
+            'street' => $data['street'],
+            'additionalData' => $data['additionalData'],
+            'neighborhood' => $data['neighborhood'],
+            'city' => $data['city'],
+            'state' => $data['state']
+        ]);
+
+        // Anexar endereço ao usuário criado
+        $user->addresses()->attach($address->id);
+
+        return $user;
     }
 }
 
