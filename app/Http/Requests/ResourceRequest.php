@@ -24,7 +24,7 @@ class ResourceRequest extends Request
     public function rules()
     {
         return [
-            "name"                  => "required|min:5|max:255", // permite (alfabeto + '_' + '-')
+            "name"                  => "required|min:5|max:255",
             "technicalDescription"  => "required|min:5|max:1000",
             "informalDescription"   => "required|min:5|max:1000"
         ];

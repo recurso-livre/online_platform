@@ -35,37 +35,6 @@ class ResourceController extends Controller
         return Resource::all();
     }
     
-    public function search($category, $query, $page) {
-        $search = [
-            'category' => $category,
-            'query' => $query,
-            'page' => intval($page),
-            'pages' => 5,
-            'resources' => [
-            (object) [
-                'resourceUri' => json_decode('{"images":["https://placehold.it/207x160"],"videos":[]}'),
-                'name' => 'Impressora 3D',
-                'idResource' => 1
-            ],
-            (object) [
-                'resourceUri' => json_decode('{"images":["https://placehold.it/207x160"],"videos":[]}'),
-                'name' => 'Chaves para carros',
-                'idResource' => 2
-            ],
-            (object) [
-                'resourceUri' => json_decode('{"images":["https://placehold.it/207x160"],"videos":[]}'),
-                'name' => 'Chaves para casas',
-                'idResource' => 3
-            ],
-            (object) [
-                'resourceUri' => json_decode('{"images":["https://placehold.it/207x160"],"videos":[]}'),
-                'name' => 'Circuitos Digitais',
-                'idResource' => 4
-            ]]
-        ];
-        return view("pages.resource.search", compact('search'));
-    }
-    
     // Método para armazenamento dos dados de recurso passados na requisição
     public function store(ResourceRequest $request)
     {
@@ -91,10 +60,12 @@ class ResourceController extends Controller
         return view('recurso.search');
     }
 
-    public function searchTeste(Request $request, $items = null)
+    public function searchTeste(Request $request)
     {
         // Obter dados da string de items (GET)
         $input = $request->searchField;
+        
+        //return $input;
 
         // Realizar a pesquisa no catálogo indexado
         // Pesquisar por nome de recurso
@@ -113,5 +84,25 @@ class ResourceController extends Controller
         }
 
         return $html_stream;
+    }
+    
+    public function search($category, $query, $page) {
+        
+        // Realizar a pesquisa no catálogo indexado
+        // Pesquisar por nome de recurso
+        $resources = Resource::searchByQuery(['match' => ['name' => $query]]);
+        
+        foreach ($resources as $resource) {
+            $resource->uriResources = json_decode($resource->uriResources);   
+        }
+        
+        $search = [
+            'category' => $category,
+            'query' => $query,
+            'page' => intval($page),
+            'pages' => 1,
+            'resources' => $resources
+        ];
+        return view("pages.resource.search", compact('search'));
     }
 }
