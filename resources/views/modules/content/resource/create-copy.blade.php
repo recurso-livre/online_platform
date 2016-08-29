@@ -1,6 +1,6 @@
 <div class="alert alert-warning" role="alert">Preencha todos os campos corretamente e confirme para continuar.</div>
     
-{!! Form::open(['url'=>'/recurso/store', 'id'=>'create-resource']) !!}
+{!! Form::open(['url'=>'/api/recurso/cadastrar', 'id'=>'create-resource']) !!}
 
     <input id="uri-resources" type="hidden" name="uriResources">
 

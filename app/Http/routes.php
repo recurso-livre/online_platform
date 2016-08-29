@@ -70,6 +70,6 @@ Route::group(['middleware' => ['web']], function()
             Route::get('cadastrar', ['as' => 'api.category.create', 'uses' => 'CategoryController@create']);
         });
     });
-    
+
     Route::get('/recurso/cadastrar', "ResourceController@create");
 });

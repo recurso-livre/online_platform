@@ -41,8 +41,9 @@
     ])
     
     @include('modules.content.generic.horizontal-line', [
-        'backgroundColor' => '#5099ca',
+        'backgroundColor' => '#1f80c0',
         'textColor' => '#e6e6e6',
+        'borderColor' => '#3b5998',
         'text' => 'RECURSOS A UM CLIQUE DE DISTÂNCIA'
     ])
     
