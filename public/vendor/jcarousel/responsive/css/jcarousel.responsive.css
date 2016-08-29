@@ -64,13 +64,13 @@
     -webkit-box-shadow: 0 0 4px #F0EFE7;
     -moz-box-shadow: 0 0 4px #F0EFE7;
     box-shadow: 0 0 4px #F0EFE7;
-    opacity: 0.01;
+    opacity: 0.3;
     transition: all linear 0.3s;
 }
 
 .jcarousel-control-prev:hover,
 .jcarousel-control-next:hover {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .jcarousel-control-prev:hover,

@@ -14,11 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <form class="navbar-form navbar-left">
+        <form id="search-form" class="navbar-form navbar-left">
           <div class="input-group navbar-search">
-            <input type="text" class="form-control" placeholder="Procurar...">
+            <input id="search-query" type="text" class="form-control" placeholder="Procurar...">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <button id="search-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </span>
           </div><!-- /input-group -->
         </form>

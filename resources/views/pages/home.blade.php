@@ -41,8 +41,9 @@
     ])
     
     @include('modules.content.generic.horizontal-line', [
-        'backgroundColor' => '#5099ca',
+        'backgroundColor' => '#1f80c0',
         'textColor' => '#e6e6e6',
+        'borderColor' => '#3b5998',
         'text' => 'RECURSOS A UM CLIQUE DE DISTÂNCIA'
     ])
     
@@ -51,19 +52,19 @@
             [
                 'title' => 'Pague online',
                 'image' => 'http://resources.mlstatic.com/homes/images/information-mp_mlb__v1d5ad91f43e.png',
-                'description' => 'Use o Mercado Pago, a solução do Mercado Livre para pagar com segurança em até 12 parcelas e com o meio de pagamento que preferir.',
+                'description' => 'Use o Pagseguro, a solução da Recurso Livre para pagar com segurança em até 12 parcelas e com o meio de pagamento que preferir.',
                 'link' => '#'
             ],
             [
                 'title' => 'Receba o produto',
                 'image' => 'http://resources.mlstatic.com/homes/images/information-shipping__v1d5ad91f43e.png',
-                'description' => 'Calcule o custo e o tempo de entrega com Mercado Envios em cada anúncio. Pague com Mercado Pago, o envio é mais barato e você está protegido!',
+                'description' => 'Calcule o custo e o tempo de entrega com o fornecedor em cada anúncio. Pague com Pagseguro, o envio é mais barato e você está protegido!',
                 'link' => '#'
             ],
             [
                 'title' => 'Proteja a sua compra',
                 'image' => 'http://resources.mlstatic.com/homes/images/information-bpp__v1d5ad91f43e.png',
-                'description' => 'Receba o produto que está esperando ou devolvemos o dinheiro. Pague através do Mercado Pago e aproveite a tranquilidade de comprar seguro.',
+                'description' => 'Receba o produto que está esperando ou devolvemos o dinheiro. Pague através do Pagseguro e aproveite a tranquilidade de comprar seguro.',
                 'link' => '#'
             ]
         ]
