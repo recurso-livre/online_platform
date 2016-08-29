@@ -1,10 +1,11 @@
 $('.img-modal, .video-modal').click(function () {
     var modal = $('#insert-link'),
-        modalUrl = $('#modal-url'),
-        oldUrl = $(this).attr("src");
+        modalUrl = $('#modal-url');
+        // oldUrl = $(this).attr("src"),
+        // imagePlaceholder = $('#image-placeholder').val(),
+        // videoPlaceholder = $('#video-placeholder').val();
         
     modal.attr("item-id", '#' + $(this).attr("id"));
-    //modalUrl.val(oldUrl);
     
     modal.modal('show');
 });
@@ -22,23 +23,32 @@ $('#modal-btn').click(function () {
     modal.modal('hide');
 });
 
-// $('#create-resource').submit(function (e) {
-//     var image = [];
-//     $('.img-modal').each(function () {
-//         image.push($(this).attr('src'));  
-//     });
+$('#create-resource').submit(function (e) {
+    var imagePlaceholder = $('#image-placeholder').val(),
+        videoPlaceholder = $('#video-placeholder').val();
     
-//     var video = [];
-//     $('.video-modal').each(function () {
-//         video.push($(this).attr('src'));  
-//     });
+    var images = [], image;
+    $('.img-modal').each(function () {
+        image = $(this).attr('src');
+        if (image != imagePlaceholder) {
+            images.push(image);
+        }
+    });
     
-//     var items = {
-//         'image': image, 
-//         'video': video
-//     };
+    var videos = [], video;
+    $('.video-modal').each(function () {
+        video = $(this).attr('src');
+        if (image != videoPlaceholder) {
+            videos.push(video);
+        }
+    });
     
-//     $('#uri-resources').val(JSON.stringify(items));
+    var items = {
+        'images': images, 
+        'videos': videos
+    };
     
-//     // e.preventDefault();
-// });
+    $('#uri-resources').val(JSON.stringify(items));
+    
+    // e.preventDefault();
+});

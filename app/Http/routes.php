@@ -12,8 +12,8 @@
 */
 
 Route::get("recurso/lista", "ResourceController@index");
-Route::get("recurso/criar", "ResourceController@create");
-Route::post("recurso/store", "ResourceController@store");
+//Route::get("recurso/criar", "ResourceController@create");
+//Route::post("recurso/store", "ResourceController@store");
 
 Route::get("categoria/lista", "CategoryController@index");
 Route::get("categoria/criar", "CategoryController@create");
@@ -38,20 +38,37 @@ Route::group(['middleware' => ['web']], function()
     {
         // Rota não-autenticada
         Route::get('cadastrar', ['as' => 'user.create', 'uses' => 'GuestController@createUser']);
+    });
+    
+    // Rotas de recurso
+    Route::group(['prefix' => 'recurso'], function()
+    {
+        //Route::get('cadastrar', ['as' => 'resource.create', 'uses' => "ResourceController@create"]);
         
-        // Rotas de recurso
+        
+        Route::get('procurar/{category}/{query}/{page}', ['as' => 'resource.search', 'uses' => 'ResourceController@search']);
+    });
+    
+    // Rotas de categoria
+    Route::group(['prefix' => 'categoria'], function()
+    {
+        Route::get('cadastrar', ['as' => 'category.create', 'uses' => 'CategoryController@create']);
+    });
+    
+    // Rotas da API
+    Route::group(['prefix' => 'api'], function()
+    {
+        // API de recurso
         Route::group(['prefix' => 'recurso'], function()
         {
-            Route::get('cadastrar', ['as' => 'user.resource.create', 'uses' => "ResourceController@create"]);
-            Route::post('store', ['as' => 'user.resource.store', 'uses' => 'ResourceController@store']);
+            Route::post('cadastrar', ['as' => 'api.resource.create', 'uses' => 'ResourceController@store']);
         });
         
-        // Rotas de categoria
-        Route::group(['prefix' => 'categoria'], function()
+        // API de categoria
+        Route::group(['prefix' => 'category'], function()
         {
-            Route::get('cadastrar', ['as' => 'user.category.create', 'uses' => 'CategoryController@create']);
+            Route::get('cadastrar', ['as' => 'api.category.create', 'uses' => 'CategoryController@create']);
         });
-        
     });
     
     Route::get('/recurso/cadastrar', "ResourceController@create");

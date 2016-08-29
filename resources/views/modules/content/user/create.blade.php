@@ -44,6 +44,52 @@
         </div>
     </div>
     
+    <h3>Endereço</h3>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="zipCode" type="text" class="form-control" placeholder="CEP">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="state" type="text" class="form-control" placeholder="Estado">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="city" type="text" class="form-control" placeholder="Cidade">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="neighborhood" type="text" class="form-control" placeholder="Bairro">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="additionalData" type="text" class="form-control" placeholder="Complemento">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">*</span>
+                <input name="street" type="text" class="form-control" placeholder="Rua">
+            </div>
+        </div>
+    </div>
+    
     <br/>
     <br/>
     <br/>
