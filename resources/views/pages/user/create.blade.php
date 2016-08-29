@@ -1,5 +1,10 @@
 @extends('pages.master')
 
+@push('posscripts')
+    <script type="text/javascript" src="{{ asset('js/dynamic-address.js') }}"></script>
+
+@endpush
+
 @section('title', 'Cadastro')
 
 @section('header')

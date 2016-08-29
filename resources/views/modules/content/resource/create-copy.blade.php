@@ -2,6 +2,16 @@
     
 {!! Form::open(['url'=>'/api/recurso/cadastrar', 'id'=>'create-resource']) !!}
 
+    @if($errors->any())
+      <div class="alert alert-danger" role="alert">
+    		<ul>
+    			@foreach($errors->all() as $error)
+    				<li>{{ $error }}</li>
+    			@endforeach
+    		</ul>
+    	</div>
+    @endif
+	  
     <input id="uri-resources" type="hidden" name="uriResources">
 
       <h3>Informações</h3>
@@ -9,13 +19,13 @@
           <div class="col-md-8">
               <div class="input-group">
                   <span class="input-group-addon">*</span>
-                  {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nome']) !!}
+                  {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nome', 'required'=>'true']) !!}
               </div>
           </div>
           <div class="col-md-4">
               <div class="input-group">
                   <span class="input-group-addon">*</span>
-                  {!! Form::select('category_id', $categories, null, array('class' => 'form-control')) !!}
+                  {!! Form::select('category_id', $categories, null, array('class' => 'form-control', 'required'=>'true')) !!}
               </div>
           </div>
       </div>
@@ -32,14 +42,16 @@
                   {!! Form::textarea('technicalDescription', null, [
                     'class'=>'form-control margin-tb-20', 
                     'placeholder'=>'Informação Técnica', 
-                    'rows'=>'15'
+                    'rows'=>'15', 
+                    'required'=>'true'
                   ]) !!}
                 </div>
                 <div id="informal" class="tab-pane fade">
                   {!! Form::textarea('informalDescription', null, [
                     'class'=>'form-control margin-tb-20', 
                     'placeholder'=>'Informação Livre', 
-                    'rows'=>'15'
+                    'rows'=>'15',
+                    'required'=>'true'
                   ]) !!}
                 </div>
               </div>

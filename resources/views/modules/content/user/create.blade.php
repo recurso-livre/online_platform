@@ -3,13 +3,22 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
     {{ csrf_field() }}
     
+    @if($errors->any())
+      <div class="alert alert-danger" role="alert">
+    		<ul>
+    			@foreach($errors->all() as $error)
+    				<li>{{ $error }}</li>
+    			@endforeach
+    		</ul>
+    	</div>
+    @endif
     
     <h3>Informações Pessoais</h3>
     <div class="row">
         <div class="col-md-12">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="text" name="name" class="form-control" placeholder="Nome">
+                <input type="text" name="name" class="form-control" placeholder="Nome" required="true">
             </div>
         </div>
     </div>
@@ -18,13 +27,13 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="text" name="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email" required="true">
             </div>
         </div>
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="text" name="phone" class="form-control" placeholder="Telefone">
+                <input type="tel" name="phone" class="form-control" placeholder="Telefone" required="true">
             </div>
         </div>
     </div>
@@ -33,13 +42,13 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="password" name="password" class="form-control" placeholder="Senha">
+                <input type="password" name="password" class="form-control" placeholder="Senha" required="true">
             </div>
         </div>
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar senha">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar senha" required="true">
             </div>
         </div>
     </div>
@@ -49,19 +58,19 @@
         <div class="col-md-2">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="zipCode" type="text" class="form-control" placeholder="CEP">
+                <input id="user-zipCode" name="zipCode" type="text" class="form-control" placeholder="CEP" required="true">
             </div>
         </div>
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="state" type="text" class="form-control" placeholder="Estado">
+                <input id="user-state" name="state" type="text" class="form-control" placeholder="Estado" required="true">
             </div>
         </div>
         <div class="col-md-4">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="city" type="text" class="form-control" placeholder="Cidade">
+                <input id="user-city" name="city" type="text" class="form-control" placeholder="Cidade" required="true">
             </div>
         </div>
     </div>
@@ -70,13 +79,13 @@
         <div class="col-md-8">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="neighborhood" type="text" class="form-control" placeholder="Bairro">
+                <input id="user-neighborhood" name="neighborhood" type="text" class="form-control" placeholder="Bairro" required="true">
             </div>
         </div>
         <div class="col-md-4">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="additionalData" type="text" class="form-control" placeholder="Complemento">
+                <input id="user-additionalData" name="additionalData" type="text" class="form-control" placeholder="Complemento" required="true">
             </div>
         </div>
     </div>
@@ -85,7 +94,7 @@
         <div class="col-md-12">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input name="street" type="text" class="form-control" placeholder="Rua">
+                <input id="user-street" name="street" type="text" class="form-control" placeholder="Endereço" required="true">
             </div>
         </div>
     </div>
