@@ -71,5 +71,10 @@ Route::group(['middleware' => ['web']], function()
         });
     });
 
-    Route::get('/recurso/cadastrar', "ResourceController@create");
+    Route::group(['prefix' => 'recurso'], function()
+    {
+        // Rota para pesquisa de recurso
+        Route::get('pesquisarHome', ['as' => 'guest.resource.home', 'uses' => 'ResourceController@homeSearch']);
+        Route::get('pesquisar/{items?}', ['as' => 'guest.resource.search', 'uses' => 'ResourceController@searchTeste']);
+    });
 });

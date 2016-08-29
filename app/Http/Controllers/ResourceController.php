@@ -85,4 +85,33 @@ class ResourceController extends Controller
 
         return redirect("/");
     }
+
+    public function homeSearch()
+    {
+        return view('recurso.search');
+    }
+
+    public function searchTeste(Request $request, $items = null)
+    {
+        // Obter dados da string de items (GET)
+        $input = $request->searchField;
+
+        // Realizar a pesquisa no catálogo indexado
+        // Pesquisar por nome de recurso
+        $resources = Resource::searchByQuery(['match' => ['name' => $input]]);
+
+        // O código abaixo é apenas um exemplo de saída
+        $html_stream = 'Resultado:<br/><br/>';
+
+        foreach ($resources as $resource)
+        {
+            $html_stream .= '<b>Name</b>: '.$resource->name.'<br/>';
+            $html_stream .= '<b>technicalDescription</b>: '.$resource->technicalDescription.'<br/>';
+            $html_stream .= '<b>informalDescription</b>: '.$resource->informalDescription.'<br/>';
+            $html_stream .= '<b>uriResources</b>: '.$resource->uriResources.'<br/><br/>';
+            $html_stream .= '<hr>';
+        }
+
+        return $html_stream;
+    }
 }
