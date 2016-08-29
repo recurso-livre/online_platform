@@ -21,4 +21,12 @@ class Resource extends Model
         // Resource possui várias categorias
         return $this->belongsToMany('App\Category', 'resources_categories');
     }
+
+    // Promover o relacionamento (Resource -> User)
+    public function user()
+    {
+        // Resource possui 1 usuário
+        return $this->belongsTo('App\User');
+    }
+
 }
