@@ -9,12 +9,13 @@ use App\Http\Requests\ResourceRequest;
 
 use App\Resource;
 use App\Category;
+use Auth;
 
 class ResourceController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth', ['except' => 'search']);
     }
     
     // Método para inclusão de recurso (criação)
@@ -39,51 +40,24 @@ class ResourceController extends Controller
     public function store(ResourceRequest $request)
     {
         $input = $request->all();
-        //return $input;
         
         // Caso seja alterada category_id para id que não exista, impeça a criação do recurso
         if (!Category::find($input["category_id"]))
             return "category_id não existente.";
 
-        $input["user_id"] = '1';
+        // Obter id do usuário logado
+        $input["user_id"] = Auth::user()->id;
         
         // Criar registro de recurso
         $recurso = Resource::create($input);
-
+        
+        // Anexar categoria selecionado a recursos
         $recurso->categories()->attach($input["category_id"]);
+        
+        // Atualizar o index de Resource do Elastic Search
+        $recurso->addToIndex();
 
         return redirect("/");
-    }
-
-    public function homeSearch()
-    {
-        return view('recurso.search');
-    }
-
-    public function searchTeste(Request $request)
-    {
-        // Obter dados da string de items (GET)
-        $input = $request->searchField;
-        
-        //return $input;
-
-        // Realizar a pesquisa no catálogo indexado
-        // Pesquisar por nome de recurso
-        $resources = Resource::searchByQuery(['match' => ['name' => $input]]);
-
-        // O código abaixo é apenas um exemplo de saída
-        $html_stream = 'Resultado:<br/><br/>';
-
-        foreach ($resources as $resource)
-        {
-            $html_stream .= '<b>Name</b>: '.$resource->name.'<br/>';
-            $html_stream .= '<b>technicalDescription</b>: '.$resource->technicalDescription.'<br/>';
-            $html_stream .= '<b>informalDescription</b>: '.$resource->informalDescription.'<br/>';
-            $html_stream .= '<b>uriResources</b>: '.$resource->uriResources.'<br/><br/>';
-            $html_stream .= '<hr>';
-        }
-
-        return $html_stream;
     }
     
     public function search($category, $query, $page) {
@@ -91,6 +65,19 @@ class ResourceController extends Controller
         // Realizar a pesquisa no catálogo indexado
         // Pesquisar por nome de recurso
         $resources = Resource::searchByQuery(['match' => ['name' => $query]]);
+        //$resources = Resource::search($query);
+        
+        $pages = $resources->chunk(12);
+        
+        $count = count($pages);
+        
+        if ($page < 1 || $page > $count) {
+            $page = 1;
+        }
+        
+        if ($count !== 0) {
+            $resources = $pages[$page-1];
+        }
         
         foreach ($resources as $resource) {
             $resource->uriResources = json_decode($resource->uriResources);   
@@ -100,7 +87,7 @@ class ResourceController extends Controller
             'category' => $category,
             'query' => $query,
             'page' => intval($page),
-            'pages' => 1,
+            'pages' => $count,
             'resources' => $resources
         ];
         return view("pages.resource.search", compact('search'));
