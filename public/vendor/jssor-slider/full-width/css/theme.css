@@ -1,0 +1,114 @@
+.jssor-slider {
+	position: relative;
+	margin: 0 auto;
+	top: 0px;
+	left: 0px;
+	width: 1300px;
+	height: 500px;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.jssor-slider > [data-u="loading"] {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.jssor-slider > [data-u="loading"] > div {
+	position:absolute;
+	display:block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+.jssor-slider > [data-u="slides"] {
+	cursor: default;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 1300px;
+	height: 500px;
+	overflow: hidden;
+}
+
+.jssor-slider > [data-u="navigator"] {
+	bottom:16px;
+	right:16px;
+}
+
+.jssor-slider > [data-u="navigator"] > [data-u="prototype"] {
+	width:16px;
+	height:16px;
+}
+
+.jssor-slider > [data-u="arrowleft"], .jssor-slider > [data-u="arrowright"] {
+	top:0px;
+	width:40px;
+	height:58px;
+}
+
+
+.jssor-slider > [data-u="arrowleft"] {
+	left:12px;
+}
+
+.jssor-slider > [data-u="arrowright"] {
+	right:12px;
+}
+
+/* jssor slider bullet navigator skin 05 css */
+/*
+.jssorb05 div           (normal)
+.jssorb05 div:hover     (normal mouseover)
+.jssorb05 .av           (active)
+.jssorb05 .av:hover     (active mouseover)
+.jssorb05 .dn           (mousedown)
+*/
+.jssorb05 {
+    position: absolute;
+}
+.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+    position: absolute;
+    /* size of bullet elment */
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+.jssorb05 div { background-position: -7px -7px; }
+.jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+.jssorb05 .av { background-position: -67px -7px; }
+.jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+/* jssor slider arrow navigator skin 22 css */
+/*
+.jssora22l                  (normal)
+.jssora22r                  (normal)
+.jssora22l:hover            (normal mouseover)
+.jssora22r:hover            (normal mouseover)
+.jssora22l.jssora22ldn      (mousedown)
+.jssora22r.jssora22rdn      (mousedown)
+*/
+.jssora22l, .jssora22r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 40px;
+    height: 58px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+}
+.jssora22l { background-position: -10px -31px; }
+.jssora22r { background-position: -70px -31px; }
+.jssora22l:hover { background-position: -130px -31px; }
+.jssora22r:hover { background-position: -190px -31px; }
+.jssora22l.jssora22ldn { background-position: -250px -31px; }
+.jssora22r.jssora22rdn { background-position: -310px -31px; }

@@ -1,0 +1,324 @@
+html, body {
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.rl-fixed-navbar-space {
+    width: 100%;
+    height: 50px;
+}
+
+.rl-fixed-navbar {
+    position: fixed !important;
+    width: 100%;
+    height: 50px;
+    z-index: 999;
+}
+
+.rl-navbar {
+    background: #2083c4;
+    border: none;
+    border-bottom: 1px solid #3b5998;
+    border-radius: 0;
+    margin: 0;
+}
+
+.rl-logo {
+    height: 190%;
+    margin-top: -9px;
+}
+
+.rl-navbar-btn {
+    color: #e6e6e6 !important;
+    transition: all 0.8s linear;
+}
+
+.rl-navbar-btn:hover {
+    color: #fff !important;
+    transition: all 0.3s linear;
+}
+
+.rl-titlebar-image-area {
+    background-color: #eee;
+}
+
+.rl-titlebar-image-area img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 200px;
+}
+
+.rl-titlebar-text-area {
+    background-color: #fff; /* #2083c4 */
+    opacity: 0.8;
+    padding: 8px 0;
+}
+
+.rl-titlebar-text-area span {
+    color: #969696; /* #fff */
+    font-size: 26px;
+    /*font-weight: bold;*/
+}
+
+
+
+.footer, .copyright {
+    color: #fdfdfd;
+    font-family: sans-serif arial;
+}
+
+.footer {
+    background-color: #3d3d3d;
+    padding: 60px 0;
+    margin: 20px 0 0 0;
+}
+
+.copyright {
+    background-color: #555;
+    padding: 20px 0;
+}
+
+.rl-shadow-1
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.rl-shadow-1:before, .rl-shadow-1:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.rl-shadow-1:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+.rl-shadow-2 {
+    -moz-box-shadow: inset 0 0 10px #ddd;
+    -webkit-box-shadow: inset 0 0 10px #ddd;
+    box-shadow: inset 0 0 10px #ddd;
+}
+
+
+
+#rl-content .input-group {
+    margin: 20px 6px; 
+}
+
+#rl-footer a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.divider {
+    margin:20px 20px 30px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.full-space, .full-width {
+    width: 100%;
+}
+
+.full-space, .full-height {
+    height: 100%;
+}
+
+.padding-tb-6 {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+.padding-tb-10 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.padding-tb-20 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.padding-tb-30 {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.margin-tb-10 {
+    margin: 10px auto !important;
+}
+
+.margin-tb-20 {
+    margin: 20px auto !important;
+}
+
+.margin-tb-40 {
+    margin: 40px auto !important;
+}
+
+.text-title {
+    font-size: 20px;
+    line-height: 35px;
+    color: #676767;
+    margin: 10px auto;
+}
+
+.text-description {
+    color: #999;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 13px;
+    height: 68px;
+    line-height: 17px;
+}
+
+
+
+.navbar-search {
+    width: 540px;
+}
+
+.resource-image-table {
+    background-color: #555;
+    padding: 15px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.img-modal {
+    cursor: pointer;
+}
+
+.opacity-hover {
+    opacity: 0.7;
+    transition: 0.3s linear all;
+}
+
+.opacity-hover:hover {
+    opacity: 1;
+}
+
+.image-fit {
+  height: 160px;
+  position: relative;
+ }
+
+.image-fit > img {
+  margin: 0;
+  max-width:100%;
+  max-height:100%;
+  position: absolute;              
+  top: 50%;                         
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
+ 
+ .material-content {
+    padding: 20px;
+}
+
+.material-content {
+    background-color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin: 16px 4px !important;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.material-btn {
+    display: block;
+    background-color: #66c0b7;
+    padding: 12px;
+    margin: 15px -20px -20px;
+    color: #fefefe !important;
+    font-size: 15px;
+    text-decoration: none !important;
+    transition: 0.3s linear all;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    -moz-border-bottom-left-radius: 2px;
+    -moz-border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.material-btn:hover {
+    background-color: #66aea6;
+}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ----------- Bootstrap ----------- */
+
+.modal-open {
+    padding-right: 0 !important;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #09588c;
+}
+.navbar-default .navbar-toggle {
+    border-color: #97bad2;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #97bad2;
+}
+
+/* --------------------------------- */
+
+@media (max-width: 1200px) {
+  .navbar-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+    .navbar-search {
+        width: 90%;
+        margin: auto 5%;
+    }
+    
+    .navbar-collapse {
+        position: absolute;
+        overflow-x: hidden;
+        background-color: rgb(10, 82, 130);
+        z-index: 9999;
+        width: 100%;
+    }
+    
+    .navbar-form {
+        border: none;
+    }
+}

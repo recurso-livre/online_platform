@@ -4,3 +4,9 @@ Homestead.json
 .env.*.php
 .env.php
 .env
+
+node_modules
+vendor
+php_errors.log
+
+.idea
